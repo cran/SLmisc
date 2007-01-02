@@ -1,0 +1,12 @@
+citHeader("To cite package SLmisc in publications use:")
+
+citEntry(entry="Manual",
+         title = "SLmisc: Miscellaneous functions for analysis of gene expression data at SIRS-Lab GmbH",
+         author = personList(as.person("M. Kohl")),
+         language = "English",
+         year = 2006,
+         organization = "SIRS-Lab GmbH",
+         type = "R package",
+         address = "Jena",
+         url = "www.sirs-lab.com",
+textVersion = paste("Kohl, M., (2006).", "SLmisc: Miscellaneous functions for analysis of gene expression data at SIRS-Lab GmbH.", "R package,", "SIRS-Lab GmbH.", "Jena."))
