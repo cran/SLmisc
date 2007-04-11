@@ -38,15 +38,18 @@ madPlot <- function (x, new = FALSE, col = grey(50:0/50), maxMAD = 3, labels = F
     box()
 
     x.bar <- seq(0, max(maxMAD, max(MAD, na.rm = TRUE)), length = length(col))
+    x.small <- seq(x.bar[1], x.bar[length(x.bar)], length = 10)
+    par(mar = c(5.1, 1, 4.1, 5))
     if(protocol){
-      par(mar = c(5.1, 1, 4.1, 5))
+      image(1, x.bar, matrix(x.bar, 1, length(x.bar)), axes = FALSE, xlab = "", ylab = "", col = col, ...)
+      box()
+      axis(4, at = c(x.small[2], x.small[9]), labels = c("dissimilar", "similar "), las = 2)
+    }else{
       image(1, x.bar, matrix(x.bar, 1, length(x.bar)), axes = FALSE, xlab = "", ylab = "", col = col, ...)
       box()
       x.small <- seq(x.bar[1], x.bar[length(x.bar)], length = 10)
-      axis(4, at = c(x.small[2], x.small[9]), labels = c("dissimilar", "similar "), las = 2)
-    }else{
-      par(mar = c(5.1, 1, 4.1, 3))
-      maColorBar(unique(round(x.bar, 2)), horizontal = FALSE, col = col, main = "")
+      Labels <- signif(rev(x.small), 2)      
+      axis(4, at = rev(x.small), labels = Labels, las = 1)
     }
     
     layout(1)

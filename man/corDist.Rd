@@ -46,7 +46,7 @@ corDist(x, method = "pearson", diag = FALSE, upper = FALSE, abs = FALSE,
 \seealso{\code{\link[sma]{plot.cor}}}
 \examples{
 ## only a dummy example
-M <- cor.na(matrix(rnorm(1000), ncol = 20))
+M <- cor(matrix(rnorm(1000), ncol = 20))
 D <- corDist(M)
 }
 \keyword{multivariate}

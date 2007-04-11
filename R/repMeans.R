@@ -24,6 +24,21 @@ repMeans <- function(x, flags, use.flags = NULL, ndups, spacing){
   anz <- ncol(x)
   Exprs <- matrix(NA, nrow = nrow(x)/ndups, ncol = anz)
   Flags <- matrix(NA, nrow = nrow(x)/ndups, ncol = anz)
+
+  ## to avoid depending on large package "limma"
+  unwrapdups <- function (M, ndups = 2, spacing = 1){
+    if (ndups == 1)
+        return(M)
+    M <- as.matrix(M)
+    nspots <- dim(M)[1]
+    nslides <- dim(M)[2]
+    ngroups <- nspots/ndups/spacing
+    dim(M) <- c(spacing, ndups, ngroups, nslides)
+    M <- aperm(M, perm = c(1, 3, 2, 4))
+    dim(M) <- c(spacing * ngroups, ndups * nslides)
+    M
+  }
+
   for(i in 1:anz){
     exprs.tmp <- unwrapdups(M = x[,i], ndups = ndups, spacing = spacing)
     flags.tmp <- unwrapdups(M = flags[,i], ndups = ndups, spacing = spacing)

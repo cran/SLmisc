@@ -33,8 +33,9 @@ data.plot[1:70, 31:50] <- rnorm(1400, sd = 1.2)
 data.plot[71:100, 1:30] <- rnorm(900, sd = 1.2)
 nrcol <- 128
 require(gplots)
-heatmap.2(data.plot, col = dChip.colors(nrcol), trace = "none", tracecol = "black")
-farbe <- heatmapCol(data = data.plot, col = dChip.colors(nrcol), lim = min(abs(range(data.plot))))
+require(RColorBrewer)
+heatmap.2(data.plot, col =  rev(colorRampPalette(brewer.pal(10, "RdBu"))(nrcol)), trace = "none", tracecol = "black")
+farbe <- heatmapCol(data = data.plot, col =  rev(colorRampPalette(brewer.pal(10, "RdBu"))(nrcol)), lim = min(abs(range(data.plot)))-1)
 heatmap.2(data.plot, col = farbe, trace = "none", tracecol = "black")
 }
 \keyword{hplot}

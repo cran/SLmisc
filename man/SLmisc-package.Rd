@@ -12,8 +12,8 @@ Miscellaneous Functions for analysis of gene expression data at SIRS-Lab GmbH
 \tabular{ll}{
 Package: \tab SLmisc\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2007-01-02\cr
+Version: \tab 1.3\cr
+Date: \tab 2007-03-19\cr
 Depends: \tab R(>= 2.4.0), stats, graphics, marray, limma, plotrix(>= 2.1.6)\cr
 Suggests: gplots
 License: \tab GPL (version 2 or later)\cr
