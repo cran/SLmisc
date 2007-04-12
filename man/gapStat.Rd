@@ -6,7 +6,7 @@
   compared to a reference distribution.
 }
 \usage{
-gapStat(data = swiss, class = g, M = 500)
+gapStat(data, class = rep(1, nrow(data)), M = 500)
 }
 \arguments{
   \item{data}{ matrix or data.frame, data}
@@ -48,6 +48,6 @@ for(i in 2:10){
 ## choose cluster size to be the smallest value such that the following 
 ## is positive
 (res <- gap.stat[1:8,1] - gap.stat[2:9,1] + gap.stat[2:9,2])
-c(2:9)[res >= 0] 
+min(c(2:9)[res >= 0])
 }
 \keyword{cluster}

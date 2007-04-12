@@ -1,7 +1,7 @@
 #########################################################
 ## function corresponds to function gap in package SAGx
 #########################################################
-gapStat <- function (data = swiss, class = g, M = 500){
+gapStat <- function (data, class = rep(1, nrow(data)), M = 500){
   if (!(length(class) == nrow(data)))
     stop("Length of class vector differs from nrow of data")
   if(M <= 0)
